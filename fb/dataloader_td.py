@@ -139,10 +139,10 @@ class FeedbackDataset(Dataset):
             #"gold_answer": item_dict["correct_answer"],
             **input_data,
             **self._prepare_output(item_dict),
-            **({"dataset": int(dataset)}  if self.split != "train" else {}),
-            **({"article_id": int(article_id)}  if self.split != "train" else {}),
-            **({"question_id": int(question_id)}  if self.split != "train" else {}),
-            **(self._prepare_evaluation(item_dict, article_id) if self.split != "train" else {}),
+            **({"dataset": int(dataset)}),
+            **({"article_id": int(article_id)}),
+            **({"question_id": int(question_id)}),
+            **(self._prepare_evaluation(item_dict, article_id)),
         }
 
     def _prepare_input(self, item, input_include=None):
