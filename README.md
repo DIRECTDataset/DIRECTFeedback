@@ -1,7 +1,7 @@
 # DIRECT-Feedback (data/feedback_data_partial.csv)
 
 ### Citation
-Liermann, W., Huang X., Lee, Y., Lee, K. (2024, November). More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing.
+Liermann, W., Huang J., Lee, Y., Lee, K. (2024, November). More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing.
 
 #### Data Descriptions
 
