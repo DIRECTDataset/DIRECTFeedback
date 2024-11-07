@@ -3,7 +3,7 @@
 ### Citation
 Liermann, W., Huang X., Lee, Y., Lee, K. (2024, November). More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing.
 
-#### Descriptions
+#### Data Descriptions
 
 This dataset holds feedback presented in the context of interactive reading comprehension exercises. It is an extension of DIRECT based on RACE. For DIRECT, incorrect answers were constructed by selecting faulty answer options from a pre-defined multiple choice form. Those are often totally unrelated to the actual reading passage. We decided to construct additional data with more natural answers, including mistakes that students are likely to make in an environment where only the reading passage and no answer options are provided. For each question in the DIRECT dataset, one annotator in the student role constructs such an answer, then another annotator in the tutor role constructs the corresponding feedback. Both annotators are presented with the reading passage, the question, its correct answer, and the corresponding key sentences. Five annotators with some level of English proficiency worked on the student role, while two native English-speaking annotators worked on the tutor role. The latter were also asked to periodically review randomly selected portions of the constructed data, including both incorrect answers and tutor feedback (constructed by the other worker). They ensured that the percentage of erroneous data items remained below 5%.
 
@@ -18,22 +18,22 @@ We maintain the split of the RACE data set which assigns each reading passage wi
 | Feedback Turns | 5026 (9431) | 475 | 525 || 10431  |
 | **DIRECT-Feedback** |   |   |   | |   |
 | Dialogues | 2722 (5095) | 302 | 307 || 5704 |
-| Feedback Turns | 11440 (21463) | 1239 | 1280 || 23982 |
+| Feedback Turns | **11440** (21463) | **1239** | **1280** || 23982 |
 | **Total** |   |   |   | |   |
 | Dialogues | 2722 (5095)  | 302  | 307  | | 5704  |
-| Feedback Turns | 16466 (30894)  | 1714  | 1805  | | 34413  |
+| Feedback Turns | **16466** (30894)  | **1714**  | **1805**  | | 34413  |
 
 We publish the whole validation and test set. The training set is published in parts (around 50% of the original data).
 
 
 # Use Baseline Model
-The provided model was trained on the entire train set as given in brackets above.
+We provide our whole model specifically finetuned for the task of feedback generation at ... This model was trained on the entire train set as given in brackets above.
 
 ## Usage
 
 #### Test the model
 ```
-python test.py data/config/default.yaml --load data/models/dpo_seed_39.ckpt
+python test.py data/config/default.yaml --load PATH_TO_DOWNLOADED_MODEL
 ```
 
 ## Set Up
