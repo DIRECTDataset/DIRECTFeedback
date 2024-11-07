@@ -22,13 +22,6 @@ class FeedbackModel(pl.LightningModule):
     tokenizer = T5Tokenizer.from_pretrained(
         "t5-base"
     )
-    tokenizer.add_special_tokens(
-        {'additional_special_tokens': ["<feedback>", "<key_sentence>"]}
-    )
-    task_token_ids = tokenizer.encode(
-        ["<feedback>", "<key_sentence>"],
-        add_special_tokens=False
-    )
 
     def __init__(self, model_name="t5-base"):
         super().__init__()
@@ -37,7 +30,6 @@ class FeedbackModel(pl.LightningModule):
         self.model = T5ForConditionalGeneration.from_pretrained(
             model_name
         )
-        self.model.resize_token_embeddings(len(self.tokenizer))
 
         with open("data/article-id_mapping.json", encoding="utf-8") as json_in:
             self.mapping = json.load(json_in)
@@ -104,7 +96,7 @@ class FeedbackModel(pl.LightningModule):
             for o, r in zip(out, reference):
                 print("out:", o, "\tref:", r)
 
-        with open("outputs.txt", "w", encoding="utf-8") as file_out:
+        with open("outputs.txt", "a", encoding="utf-8") as file_out:
             for i, (o, r) in enumerate(zip(out, reference)):
                 file_out.write("\t".join([
                     str(batch['dataset'][i].item()),
