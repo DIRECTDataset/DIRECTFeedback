@@ -27,13 +27,13 @@ We publish the whole validation and test set. The training set is published in p
 
 
 # Use Baseline Model
-We provide our whole model specifically finetuned for the task of feedback generation at ... This model was trained on the entire train set as given in brackets above.
+We provide our whole model specifically finetuned for the task of feedback generation at [HuggingFace](https://huggingface.co/etri-lirs/t5-base-rc-feedback) This model was trained on the entire train set as given in brackets above.
 
 ## Usage
 
 #### Test the model
 ```
-python test.py data/config/default.yaml --load PATH_TO_DOWNLOADED_MODEL
+python test.py data/config/default.yaml --load t5-base-rc-feedback
 ```
 
 ## Set Up
