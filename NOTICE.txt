@@ -1,0 +1,10 @@
+DIRECT-Feedback
+Copyright 2024 ETRI LIRS, Wencke Liermann
+
+For the pre-trained language model, we use huggingface's 
+Transformer, which distributed under Apache License Version 2.0. 
+
+Copyright 2024- The Hugging Face team. All rights reserved.
+(URL: https://huggingface.co/transformers/index.html#), 
+
+We are grateful for their excellent works.

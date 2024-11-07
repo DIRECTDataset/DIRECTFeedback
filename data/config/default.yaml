@@ -1,0 +1,49 @@
+seed: 39
+
+data:
+  mapping: 'data/article-id_mapping.json'
+  path: 'data/feedback_data_partial.csv'
+  split:
+    val: 'data/devlist.txt'
+    test: 'data/testlist.txt'
+    rf: 'data/rflist.txt'
+  mode: 'multi-task'
+
+  max_source_length: 768
+  max_target_length: 256
+  input_include:
+    - 'article'
+    - 'question'
+    - 'wrong_answer'
+  output_include: 'feedback'
+  prefixes:
+    article: ' paragraph: '
+    key_sentence: ' context: '
+    question: ' question: '
+    wrong_answer: ' answer: '
+
+trainer:
+  deterministic: true
+  max_epochs: 10
+  accelerator: 'gpu'
+  accumulate_grad_batches: 4
+
+training:
+  batch_size: 8
+  sub_task_w: 0.0
+
+  optimizer:
+    learning_rate: 0.0005
+    weight_decay: 0.1
+    warm_up_epochs: 0.5
+    training_epochs: 10
+
+  early_stopping:
+    patience: 10
+    monitor: 'OVERALL'
+    mode: 'max'
+
+  checkpoint:
+    monitor: 'OVERALL'
+    mode: 'max'
+    dirpath: 'data/model_checkpoints'
