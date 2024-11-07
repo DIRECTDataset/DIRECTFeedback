@@ -40,18 +40,13 @@ def train(cfg, ckpt_load, test):
     print("COMPLETE")
     print("Build model ...")
 
-    model = FeedbackModel()
-
-    if ckpt_load is not None:
-        pretrained_model = FeedbackModel.load_from_checkpoint(ckpt_load).state_dict()
-        model.load_state_dict(pretrained_model)
+    model = FeedbackModel("t5-base-rc-feedback")
 
     print("COMPLETE")
 
     print("Start test ...")
     trainer.validate(
         model,
-        ckpt_path=ckpt_load,
         dataloaders=test_data
     )
 
@@ -82,3 +77,4 @@ if __name__ == "__main__":
         cfg_dict = yaml.load(args.config, Loader=yaml.FullLoader)
 
         train(cfg_dict, args.load, True)
+
