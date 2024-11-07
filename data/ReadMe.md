@@ -27,13 +27,13 @@ Data is provided as a single CSV file that holds one data item per line:
 ```
 set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
 ```
-The first column indicates whether the feedback is part of the original DIRECT dataset or our augmentation DIRECT-Feedback.
-The second column provides a unique identifer that can be used to retrieve a reading passage using the provided JSON file `article-id_mapping.json`.
-The third and fourth column hold information on the question the student was asked to answer.
-The fifth column holds a subset of the reading passage's sentences that are relevant to the question.
-The sixth column holds the expected/correct answer to the question.
-The seventh column holds the incorrect answer provided by the student.
-The eigth column holds feedback in the form of hints, explanations or corrections as it was provided by the tutor role.
+The first column indicates whether the feedback is part of the original DIRECT dataset or our augmentation DIRECT-Feedback.  
+The second column provides a unique identifer that can be used to retrieve a reading passage using the provided JSON file `article-id_mapping.json`.  
+The third and fourth column hold information on the question the student was asked to answer.  
+The fifth column holds a subset of the reading passage's sentences that are relevant to the question.  
+The sixth column holds the expected/correct answer to the question.  
+The seventh column holds the incorrect answer provided by the student.  
+The eigth column holds feedback in the form of hints, explanations or corrections as it was provided by the tutor role.  
 
 #### Disclaimer
 This repository holds information from the [RACE](https://www.cs.cmu.edu/~glai1/data/race/#:~:text=notes) dataset that is available under a non-profit research-only licence.
