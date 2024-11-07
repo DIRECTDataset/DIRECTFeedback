@@ -40,7 +40,7 @@ def train(cfg, ckpt_load, test):
     print("COMPLETE")
     print("Build model ...")
 
-    model = FeedbackModel("t5-base-rc-feedback")
+    model = FeedbackModel(ckpt_load)
 
     print("COMPLETE")
 
