@@ -1,9 +1,15 @@
 # DIRECT-Feedback (data/feedback_data_partial.csv)
 
 ### Citation
-Liermann, W., Huang, J. X., Lee, Y., & Lee, K. J. (2024). More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, pages 10838–10851, Miami, Florida, USA. Association for Computational Linguistics.
-
+*DIRECT-Feedback & Feedback Generation Model:*  
+Liermann, W., Huang, J. X., Lee, Y., & Lee, K. J. (2024). More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (pp. 10838–10851).
+  
+*DIRECT:*  
 Huang, J. X., Lee, Y., & Kwon, O. W. (2022). DIRECT: toward dialogue-based reading comprehension tutoring. IEEE Access, 11, 8978-8987.
+  
+*RACE:*  
+Lai, G., Xie, Q., Liu, H., Yang, Y., & Hovy, E. (2017). RACE: Large-scale ReAding Comprehension Dataset From Examinations. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 785-794).
+  
 
 #### Data Descriptions
 
