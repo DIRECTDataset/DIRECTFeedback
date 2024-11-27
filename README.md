@@ -1,11 +1,12 @@
-# DIRECT-Feedback (data/feedback_data_partial.csv)
+# DIRECT-F Dataset (data/feedback_data_partial.csv)
 
 #### Paper
 [Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation](https://aclanthology.org/2024.emnlp-main.605/). In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
 
 #### Data Descriptions
 
-This dataset holds feedback presented in the context of interactive reading comprehension exercises. It is an extension of DIRECT(Huang et al., 2022). DIRECT and DIRECT-F datasets incorporates elements derived from RACE dataset(Lai et al., 2017). For DIRECT, incorrect answers were constructed by selecting faulty answer options from a pre-defined multiple choice form. Those are often totally unrelated to the actual reading passage. We decided to construct additional data with more natural answers, including mistakes that students are likely to make in an environment where only the reading passage and no answer options are provided. For each question in the DIRECT dataset, one annotator in the student role constructs such an answer, then another annotator in the tutor role constructs the corresponding feedback. Both annotators are presented with the reading passage, the question, its correct answer, and the corresponding key sentences. Five annotators with some level of English proficiency worked on the student role, while two native English-speaking annotators worked on the tutor role. The latter were also asked to periodically review randomly selected portions of the constructed data, including both incorrect answers and tutor feedback (constructed by the other worker). They ensured that the percentage of erroneous data items remained below 5%. We call this new dataset DIRECT-F.
+This dataset holds feedback presented in the context of interactive reading comprehension tutoring. It is an extension of DIRECT (Dialogue-based Reading Comprehension Tutoring) Dataset ([Huang et al., 2022](https://ieeexplore.ieee.org/document/10003215). DIRECT and DIRECT-F datasets incorporates elements derived from RACE dataset(Lai et al., 2017). 
+For DIRECT, incorrect answers were constructed by selecting faulty answer options from a pre-defined multiple choice form. Those are often totally unrelated to the actual reading passage. We decided to construct additional data with more natural answers, including mistakes that students are likely to make in an environment where only the reading passage and no answer options are provided. For each question in the DIRECT dataset, one annotator in the student role constructs such an answer, then another annotator in the tutor role constructs the corresponding feedback. Both annotators are presented with the reading passage, the question, its correct answer, and the corresponding key sentences. Five annotators with some level of English proficiency worked on the student role, while two native English-speaking annotators worked on the tutor role. The latter were also asked to periodically review randomly selected portions of the constructed data, including both incorrect answers and tutor feedback (constructed by the other worker). They ensured that the percentage of erroneous data items remained below 5%. We call this new dataset DIRECT-F.
 
 #### Format
 Data is provided as a single CSV file that holds one data item per line:
@@ -112,8 +113,13 @@ The dataset is provided "as-is" without warranty of any kind. The authors are no
 
 #### Compliance with RACE Terms
 Elements derived from the RACE dataset are subject to the terms outlined by [RACE](https://www.cs.cmu.edu/~glai1/data/race/#:~:text=notes). Users must ensure compliance with those terms.
-
+The elements derived from the RACE dataset including:
+- "file_id": Match the original "file_id" in RACE.
+- "key_sentences": Annotated or extracted from the RACE "article."
+- "question": Adapted to dialogue format based on the RACE "question."
+- "correct_answer": Reformatted to dialogue format from the RACE "answer."
+- "wrong_answer": Converted to dialogue format from the RACE "options", or newly constructed based on the "article" to simulate natural mistakes students might make without "options."
 
 #### Reference
-Huang et al., 2022: Jin-Xia Huang, Yohan Lee, Oh-Woog Kwon. 2022. DIRECT: Toward Dialogue-Based Reading Comprehension Tutoring. in IEEE Access, vol. 11, pp. 8978-8987, 2023, doi: 10.1109/ACCESS.2022.3233224.  
-Lai et al., 2017: Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, and Eduard Hovy. 2017. RACE: Large-scale ReAding Comprehension Dataset From Examinations. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 785?794, Copenhagen, Denmark. Association for Computational Linguistics.  
+[Jin-Xia Huang, Yohan Lee, Oh-Woog Kwon. 2022. DIRECT: Toward Dialogue-Based Reading Comprehension Tutoring](https://ieeexplore.ieee.org/document/10003215). in IEEE Access, vol. 11, pp. 8978-8987, 2023, doi: 10.1109/ACCESS.2022.3233224.  
+[Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, and Eduard Hovy. 2017. RACE: Large-scale ReAding Comprehension Dataset From Examinations](https://aclanthology.org/D17-1082/). In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 785?794, Copenhagen, Denmark. Association for Computational Linguistics.  
