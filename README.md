@@ -1,8 +1,7 @@
-# DIRECT-F Dataset (data/feedback_data_partial.csv)
-
 #### Paper
 [Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation](https://aclanthology.org/2024.emnlp-main.605/). In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
 
+## DIRECT-F Dataset
 #### Data Descriptions
 
 This dataset holds feedback presented in the context of interactive reading comprehension tutoring. It is an extension of DIRECT (Dialogue-based Reading Comprehension Tutoring) Dataset ([Huang et al., 2022](https://ieeexplore.ieee.org/document/10003215). DIRECT and DIRECT-F datasets incorporates elements derived from RACE dataset(Lai et al., 2017). 
@@ -96,7 +95,7 @@ Proper credit must be given to the DIRECT-F dataset (Liermann et al., 2024), the
 3. Disclaimer:   
 The dataset is provided "as-is" without warranty of any kind. The authors are not liable for any issues or outcomes arising from its use.  
 
-4. Compliance with RACE Terms
+4. Compliance with RACE Terms:
 Elements derived from the RACE dataset are subject to the terms outlined by [RACE](https://www.cs.cmu.edu/~glai1/data/race/#:~:text=notes). Users must ensure compliance with those terms.
 The elements derived from the RACE dataset including:
 - "file_id": Match the original "file_id" in RACE.
