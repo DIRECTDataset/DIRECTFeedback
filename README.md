@@ -95,7 +95,7 @@ Proper credit must be given to the DIRECT-F dataset (Liermann et al., 2024), the
 3. Disclaimer:   
 The dataset is provided "as-is" without warranty of any kind. The authors are not liable for any issues or outcomes arising from its use.  
 
-4. Compliance with RACE Terms:
+4. Compliance with RACE Terms:   
 Elements derived from the RACE dataset are subject to the terms outlined by [RACE](https://www.cs.cmu.edu/~glai1/data/race/#:~:text=notes). Users must ensure compliance with those terms.
 The elements derived from the RACE dataset including:
 - "file_id": Match the original "file_id" in RACE.
