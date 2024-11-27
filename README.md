@@ -77,8 +77,8 @@ https://pytorch.org/get-started/previous-versions/
 
 4. Prepare the data:
 You will need two files `article-id_mapping.json` and `feedback_data_partial.csv` placed in `data/` folder.  
-'article-id_mapping.json' contains a mapping of article ids to the corresponding articles from the RACE dataset. This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset.
-`feedback_data_partial.csv` is a tab-separated file with the following columns:
+- 'article-id_mapping.json' contains a mapping of article ids to the corresponding articles from the RACE dataset. This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset.
+- `feedback_data_partial.csv` is a tab-separated file with the following columns:
 ```
 set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
 ```
