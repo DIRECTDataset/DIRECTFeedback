@@ -1,19 +1,24 @@
 # DIRECT-Feedback (data/feedback_data_partial.csv)
 
-### Citation
-*DIRECT-Feedback & Feedback Generation Model:*  
-Liermann, W., Huang, J. X., Lee, Y., & Lee, K. J. (2024). More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (pp. 10838–10851).
-  
-*DIRECT:*  
-Huang, J. X., Lee, Y., & Kwon, O. W. (2022). DIRECT: toward dialogue-based reading comprehension tutoring. IEEE Access, 11, 8978-8987.
-  
-*RACE:*  
-Lai, G., Xie, Q., Liu, H., Yang, Y., & Hovy, E. (2017). RACE: Large-scale ReAding Comprehension Dataset From Examinations. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing (pp. 785-794).
-  
+#### Paper
+Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
 
 #### Data Descriptions
 
-This dataset holds feedback presented in the context of interactive reading comprehension exercises. It is an extension of DIRECT based on RACE. For DIRECT, incorrect answers were constructed by selecting faulty answer options from a pre-defined multiple choice form. Those are often totally unrelated to the actual reading passage. We decided to construct additional data with more natural answers, including mistakes that students are likely to make in an environment where only the reading passage and no answer options are provided. For each question in the DIRECT dataset, one annotator in the student role constructs such an answer, then another annotator in the tutor role constructs the corresponding feedback. Both annotators are presented with the reading passage, the question, its correct answer, and the corresponding key sentences. Five annotators with some level of English proficiency worked on the student role, while two native English-speaking annotators worked on the tutor role. The latter were also asked to periodically review randomly selected portions of the constructed data, including both incorrect answers and tutor feedback (constructed by the other worker). They ensured that the percentage of erroneous data items remained below 5%.
+This dataset holds feedback presented in the context of interactive reading comprehension exercises. It is an extension of DIRECT(Huang et al., 2022). DIRECT and DIRECT-F datasets incorporates elements derived from RACE dataset(Lai et al., 2017). For DIRECT, incorrect answers were constructed by selecting faulty answer options from a pre-defined multiple choice form. Those are often totally unrelated to the actual reading passage. We decided to construct additional data with more natural answers, including mistakes that students are likely to make in an environment where only the reading passage and no answer options are provided. For each question in the DIRECT dataset, one annotator in the student role constructs such an answer, then another annotator in the tutor role constructs the corresponding feedback. Both annotators are presented with the reading passage, the question, its correct answer, and the corresponding key sentences. Five annotators with some level of English proficiency worked on the student role, while two native English-speaking annotators worked on the tutor role. The latter were also asked to periodically review randomly selected portions of the constructed data, including both incorrect answers and tutor feedback (constructed by the other worker). They ensured that the percentage of erroneous data items remained below 5%. We call this new dataset DIRECT-F.
+
+#### Format
+Data is provided as a single CSV file that holds one data item per line:
+```
+set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
+```
+The first column indicates whether the feedback is part of the original DIRECT dataset or our augmentation DIRECT-F.  
+The second column provides a unique identifer that can be used to retrieve a reading passage using the provided JSON file `article-id_mapping.json`.  
+The third and fourth column hold information on the question the student was asked to answer.  
+The fifth column holds a subset of the reading passage's sentences that are relevant to the question.  
+The sixth column holds the expected/correct answer to the question.  
+The seventh column holds the incorrect answer provided by the student.  
+The eigth column holds feedback in the form of hints, explanations or corrections as it was provided by the tutor role.  
 
 #### Data Statistics
 
@@ -24,15 +29,14 @@ We maintain the split of the RACE data set which assigns each reading passage wi
 | **DIRECT**  |   |   |   | |   |
 | Dialogues | 2707 (5066) | 301 | 301 || 5668  |
 | Feedback Turns | 5026 (9431) | 475 | 525 || 10431  |
-| **DIRECT-Feedback** |   |   |   | |   |
+| **DIRECT-F** |   |   |   | |   |
 | Dialogues | 2722 (5095) | 302 | 307 || 5704 |
-| Feedback Turns | **11440** (21463) | **1239** | **1280** || 23982 |
+| Feedback Turns | 11440 (21463) | 1239 | 1280 || 23982 |
 | **Total** |   |   |   | |   |
 | Dialogues | 2722 (5095)  | 302  | 307  | | 5704  |
-| Feedback Turns | **16466** (30894)  | **1714**  | **1805**  | | 34413  |
+| Feedback Turns | 16466 (30894)  | 1714  | 1805  | | 34413  |
 
 We publish the whole validation and test set. The training set is published in parts (around 50% of the original data).
-
 
 # Use Baseline Model
 We provide our whole model specifically finetuned for the task of feedback generation at [HuggingFace](https://huggingface.co/etri-lirs/t5-base-rc-feedback) This model was trained on the entire train set as given in brackets above.
@@ -92,3 +96,24 @@ Prepare the data. You will need two files `article-id_mapping.json` and `feedbac
 ```
 set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
 ```
+
+#### Attribution and Terms of Use:
+The DIRECT-F dataset is released under CC BY-NC-SA 4.0 License. By using this dataset, you agree to the following:  
+  
+1. Attribution:   
+Proper credit must be given to the DIRECT-F dataset (Liermann et al., 2024), the DIRECT dataset (Huang et al., 2022) and the original RACE-M dataset (Lai et al., 2017) from which parts of it are derived.  
+  
+2. Non-Commercial Use Only:   
+The dataset is strictly for non-commercial research purposes. Commercial use of any kind is prohibited.  
+  
+3. Disclaimer:   
+The dataset is provided "as-is" without warranty of any kind. The authors are not liable for any issues or outcomes arising from its use.  
+
+
+#### Compliance with RACE Terms
+Elements derived from the RACE dataset are subject to the terms outlined by [RACE](https://www.cs.cmu.edu/~glai1/data/race/#:~:text=notes). Users must ensure compliance with those terms.
+
+
+#### Reference
+Huang et al., 2022: Jin-Xia Huang, Yohan Lee, Oh-Woog Kwon. 2022. DIRECT: Toward Dialogue-Based Reading Comprehension Tutoring. in IEEE Access, vol. 11, pp. 8978-8987, 2023, doi: 10.1109/ACCESS.2022.3233224.  
+Lai et al., 2017: Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, and Eduard Hovy. 2017. RACE: Large-scale ReAding Comprehension Dataset From Examinations. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 785?794, Copenhagen, Denmark. Association for Computational Linguistics.  
