@@ -1,5 +1,5 @@
 #### Paper
-[Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation](https://aclanthology.org/2024.emnlp-main.605/). In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
+Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. [More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation](https://aclanthology.org/2024.emnlp-main.605/). In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
 
 ## DIRECT-F Dataset
 #### Data Descriptions
@@ -105,5 +105,5 @@ The elements derived from the RACE dataset including:
 - "wrong_answer": Converted to dialogue format from the RACE "options", or newly constructed based on the "article" to simulate natural mistakes students might make without "options."
 
 ## Reference
-[Jin-Xia Huang, Yohan Lee, Oh-Woog Kwon. 2022. DIRECT: Toward Dialogue-Based Reading Comprehension Tutoring](https://ieeexplore.ieee.org/document/10003215). in IEEE Access, vol. 11, pp. 8978-8987, 2023, doi: 10.1109/ACCESS.2022.3233224.  
-[Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, and Eduard Hovy. 2017. RACE: Large-scale ReAding Comprehension Dataset From Examinations](https://aclanthology.org/D17-1082/). In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 785?794, Copenhagen, Denmark. Association for Computational Linguistics.  
+Jin-Xia Huang, Yohan Lee, Oh-Woog Kwon. 2022. [DIRECT: Toward Dialogue-Based Reading Comprehension Tutoring](https://ieeexplore.ieee.org/document/10003215). in IEEE Access, vol. 11, pp. 8978-8987, 2023, doi: 10.1109/ACCESS.2022.3233224.  
+Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, and Eduard Hovy. 2017. [RACE: Large-scale ReAding Comprehension Dataset From Examinations](https://aclanthology.org/D17-1082/). In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 785?794, Copenhagen, Denmark. Association for Computational Linguistics.  
