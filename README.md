@@ -4,7 +4,7 @@ Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. [More Insight
 ## DIRECT-F Dataset
 #### Data Descriptions
 
-This dataset holds feedback presented in the context of interactive reading comprehension tutoring. It is an extension of DIRECT (Dialogue-based Reading Comprehension Tutoring) Dataset ([Huang et al., 2022](https://ieeexplore.ieee.org/document/10003215). DIRECT and DIRECT-F datasets incorporates elements derived from RACE dataset(Lai et al., 2017). 
+This dataset holds feedback presented in the context of interactive reading comprehension tutoring. It is an extension of DIRECT (Dialogue-based Reading Comprehension Tutoring) Dataset (Huang et al., 2022). DIRECT and DIRECT-F datasets incorporates elements derived from RACE dataset(Lai et al., 2017). 
 For DIRECT, incorrect answers were constructed by selecting faulty answer options from a pre-defined multiple choice form. Those are often totally unrelated to the actual reading passage. We decided to construct additional data with more natural answers, including mistakes that students are likely to make in an environment where only the reading passage and no answer options are provided. For each question in the DIRECT dataset, one annotator in the student role constructs such an answer, then another annotator in the tutor role constructs the corresponding feedback. Both annotators are presented with the reading passage, the question, its correct answer, and the corresponding key sentences. Five annotators with some level of English proficiency worked on the student role, while two native English-speaking annotators worked on the tutor role. The latter were also asked to periodically review randomly selected portions of the constructed data, including both incorrect answers and tutor feedback (constructed by the other worker). They ensured that the percentage of erroneous data items remained below 5%. We call this new dataset DIRECT-F.
 
 #### Format
@@ -12,13 +12,13 @@ Data is provided as a single CSV file that holds one data item per line:
 ```
 set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
 ```
-The first column indicates whether the feedback is part of the original DIRECT dataset or our augmentation DIRECT-F.  
-The second column provides a unique identifer that can be used to retrieve a reading passage using the provided JSON file `article-id_mapping.json`.  
-The third and fourth column hold information on the question the student was asked to answer.  
-The fifth column holds a subset of the reading passage's sentences that are relevant to the question.  
-The sixth column holds the expected/correct answer to the question.  
-The seventh column holds the incorrect answer provided by the student.  
-The eigth column holds feedback in the form of hints, explanations or corrections as it was provided by the tutor role.  
+- 'Set' column indicates whether the feedback is part of the original DIRECT dataset or our augmentation DIRECT-F.  
+- 'File_id' column provides a unique identifer that can be used to retrieve a reading passage using the provided JSON file `article-id_mapping.json`.  
+- 'Question_id' and 'question' columns hold information on the question the student was asked to answer.  
+- 'Key_sentence' column holds a subset of the reading passage's sentences that are relevant to the question.  
+- 'Correct_answer' column holds the expected/correct answer to the question.  
+- 'Wrong_answer' column holds the incorrect answer provided by the student.  
+- 'Feedback' column holds feedback in the form of hints, explanations or corrections as it was provided by the tutor role.  
 
 #### Data Statistics
 
@@ -39,7 +39,7 @@ We maintain the split of the RACE data set which assigns each reading passage wi
 We publish the whole validation and test set. The training set is published in parts (around 50% of the original data).
 
 ## Rectify Model
-We provide our whole model specifically finetuned for the task of feedback generation at [HuggingFace](https://huggingface.co/etri-lirs/t5-base-rc-feedback) This model was trained on the entire train set as given in brackets above.
+We provide our Rectify model, specifically finetuned for the task of feedback generation using the DIRECT-F data, at [Rectify Model](https://huggingface.co/etri-lirs/t5-base-rc-feedback) This model was trained on the entire train set as given in brackets above.
 
 #### Test the model
 ```
@@ -78,7 +78,7 @@ https://pytorch.org/get-started/previous-versions/
 4. Prepare the data:
 You will need two files `article-id_mapping.json` and `feedback_data_partial.csv` placed in `data/` folder.  
 - 'article-id_mapping.json' contains a mapping of article ids to the corresponding articles from the RACE dataset. This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset.
-- `feedback_data_partial.csv` is a tab-separated file with the following columns:
+- 'feedback_data_partial.csv' is a tab-separated file with the following columns:
 ```
 set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
 ```
@@ -87,13 +87,13 @@ set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\
 The DIRECT-F dataset and Rectify model are released under CC BY-NC-SA 4.0 License. By using the dataset and model, you agree to the following:  
 
 1. Non-Commercial Use Only:   
-The dataset is strictly for non-commercial research purposes. Commercial use of any kind is prohibited.  
+The dataset and the model are strictly for non-commercial research purposes. Commercial use of any kind is prohibited.  
   
 2. Attribution:   
 Proper credit must be given to the DIRECT-F dataset (Liermann et al., 2024), the DIRECT dataset (Huang et al., 2022) and the original RACE-M dataset (Lai et al., 2017) from which parts of it are derived.  
   
 3. Disclaimer:   
-The dataset is provided "as-is" without warranty of any kind. The authors are not liable for any issues or outcomes arising from its use.  
+The dataset and the model are provided "as-is" without warranty of any kind. The authors are not liable for any issues or outcomes arising from its use.  
 
 4. Compliance with RACE Terms:   
 Elements derived from the RACE dataset are subject to the terms outlined by [RACE](https://www.cs.cmu.edu/~glai1/data/race/#:~:text=notes). Users must ensure compliance with those terms.
