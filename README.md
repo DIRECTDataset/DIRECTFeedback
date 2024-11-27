@@ -1,7 +1,7 @@
 # DIRECT-Feedback (data/feedback_data_partial.csv)
 
 #### Paper
-Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
+[Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation](https://aclanthology.org/2024.emnlp-main.605/). In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
 
 #### Data Descriptions
 
