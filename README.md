@@ -39,26 +39,22 @@ We maintain the split of the RACE data set which assigns each reading passage wi
 
 We publish the whole validation and test set. The training set is published in parts (around 50% of the original data).
 
-# Use Baseline Model
+## Rectify Model
 We provide our whole model specifically finetuned for the task of feedback generation at [HuggingFace](https://huggingface.co/etri-lirs/t5-base-rc-feedback) This model was trained on the entire train set as given in brackets above.
-
-## Usage
 
 #### Test the model
 ```
 python test.py data/config/default.yaml --load t5-base-rc-feedback
 ```
 
-## Set Up
-
-#### Step 0:
-Create and activate a new clean conda environment:
+#### Set Up
+1. Create and activate a new clean conda environment
 ```
 >>> conda create -n myenv python=3.9
 >>> conda activate myenv
 ```
 
-#### Step 1:
+2. CUDA and Pytorch setup
 In order to install the appropriate pytorch version, first find your CUDA version:
 In Windows Powershell or Linux standard terminal:
 ```
@@ -69,49 +65,38 @@ In Windows Powershell or Linux standard terminal:
 ...
 ```
 
-#### Step 2:
 Find your matching pytorch version and copy the comand from:
 https://pytorch.org/get-started/previous-versions/
 ```
 >>> conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
 ```
 
-#### Step 3
-Install all standard dependencies:
+3. Install all standard dependencies:
 ```
 >>> pip install -r requirements.txt
 ```
 
-
-#### Step 4:
-Prepare the data. You will need two files `article-id_mapping.json` and `feedback_data_partial.csv` placed in `data/` folder.  
-
-`article-id_mapping.json` holds a mapping from article ids to the article text:
-```
-{
-    "1": "This is an example article.",
-    ...
-}
-```
+4. Prepare the data:
+You will need two files `article-id_mapping.json` and `feedback_data_partial.csv` placed in `data/` folder.  
+'article-id_mapping.json' contains a mapping of article ids to the corresponding articles from the RACE dataset. This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset.
 `feedback_data_partial.csv` is a tab-separated file with the following columns:
 ```
 set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
 ```
 
-#### Attribution and Terms of Use:
-The DIRECT-F dataset is released under CC BY-NC-SA 4.0 License. By using this dataset, you agree to the following:  
-  
-1. Attribution:   
-Proper credit must be given to the DIRECT-F dataset (Liermann et al., 2024), the DIRECT dataset (Huang et al., 2022) and the original RACE-M dataset (Lai et al., 2017) from which parts of it are derived.  
-  
-2. Non-Commercial Use Only:   
+## Attribution and Terms of Use:
+The DIRECT-F dataset and Rectify model are released under CC BY-NC-SA 4.0 License. By using the dataset and model, you agree to the following:  
+
+1. Non-Commercial Use Only:   
 The dataset is strictly for non-commercial research purposes. Commercial use of any kind is prohibited.  
+  
+2. Attribution:   
+Proper credit must be given to the DIRECT-F dataset (Liermann et al., 2024), the DIRECT dataset (Huang et al., 2022) and the original RACE-M dataset (Lai et al., 2017) from which parts of it are derived.  
   
 3. Disclaimer:   
 The dataset is provided "as-is" without warranty of any kind. The authors are not liable for any issues or outcomes arising from its use.  
 
-
-#### Compliance with RACE Terms
+4. Compliance with RACE Terms
 Elements derived from the RACE dataset are subject to the terms outlined by [RACE](https://www.cs.cmu.edu/~glai1/data/race/#:~:text=notes). Users must ensure compliance with those terms.
 The elements derived from the RACE dataset including:
 - "file_id": Match the original "file_id" in RACE.
@@ -120,6 +105,6 @@ The elements derived from the RACE dataset including:
 - "correct_answer": Reformatted to dialogue format from the RACE "answer."
 - "wrong_answer": Converted to dialogue format from the RACE "options", or newly constructed based on the "article" to simulate natural mistakes students might make without "options."
 
-#### Reference
+## Reference
 [Jin-Xia Huang, Yohan Lee, Oh-Woog Kwon. 2022. DIRECT: Toward Dialogue-Based Reading Comprehension Tutoring](https://ieeexplore.ieee.org/document/10003215). in IEEE Access, vol. 11, pp. 8978-8987, 2023, doi: 10.1109/ACCESS.2022.3233224.  
 [Guokun Lai, Qizhe Xie, Hanxiao Liu, Yiming Yang, and Eduard Hovy. 2017. RACE: Large-scale ReAding Comprehension Dataset From Examinations](https://aclanthology.org/D17-1082/). In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 785?794, Copenhagen, Denmark. Association for Computational Linguistics.  
