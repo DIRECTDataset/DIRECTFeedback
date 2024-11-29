@@ -8,10 +8,7 @@ This dataset holds feedback presented in the context of interactive reading comp
 For DIRECT, incorrect answers were constructed by selecting faulty answer options from a pre-defined multiple choice form. Those are often totally unrelated to the actual reading passage. We decided to construct additional data with more natural answers, including mistakes that students are likely to make in an environment where only the reading passage and no answer options are provided. For each question in the DIRECT dataset, one annotator in the student role constructs such an answer, then another annotator in the tutor role constructs the corresponding feedback. Both annotators are presented with the reading passage, the question, its correct answer, and the corresponding key sentences. Five annotators with some level of English proficiency worked on the student role, while two native English-speaking annotators worked on the tutor role. The latter were also asked to periodically review randomly selected portions of the constructed data, including both incorrect answers and tutor feedback (constructed by the other worker). They ensured that the percentage of erroneous data items remained below 5%. We call this new dataset DIRECT-F.
 
 #### Format
-Data is provided as a single CSV file that holds one data item per line:
-```
-set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
-```
+Data is provided as a single CSV file "feedback_data_partial.csv", that holds one data item per line:
 - 'Set' column indicates whether the feedback is part of the original DIRECT dataset or our augmentation DIRECT-F.  
 - 'File_id' column provides a unique identifer that can be used to retrieve a reading passage using the provided JSON file `article-id_mapping.json`.  
 - 'Question_id' and 'question' columns hold information on the question the student was asked to answer.  
@@ -42,40 +39,38 @@ We publish the whole validation and test set. The training set is published in p
 We provide our Rectify model, specifically finetuned for the task of feedback generation using the DIRECT-F data, at [Rectify Model](https://huggingface.co/etri-lirs/t5-base-rc-feedback) This model was trained on the entire train set as given in brackets above.
 
 #### Virtual Environment Setup
-1. Create and activate a new clean conda environment
+1. Create and activate a new clean virtual environment
 ```
->>> conda create -n myenv python=3.9
->>> conda activate myenv
+$conda create -n myenv python=3.9
+$conda activate myenv
 ```
 
 2. : CUDA and Pytorch
 In order to install the appropriate pytorch version, first find your CUDA version:
-In Windows Powershell or Linux standard terminal:
 ```
->>> nvidia-smi
+$nvidia-smi
 | NVIDIA-SMI 515.65.01    Driver Version: 516.94       CUDA Version: **11.7**     |
-
 ```
-Find your matching pytorch version and copy the comand from:
-https://pytorch.org/get-started/previous-versions/
+Find your matching pytorch version and copy the comand from: https://pytorch.org/get-started/previous-versions/
 ```
->>> conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
+$conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
 ```
 
 3. Install dependencies:
 ```
->>> pip install -r requirements.txt
+$pip install -r requirements.txt
 ```
 
 #### Data Preparation and Model Execution
 1. Prepare the data:
 You will need two files `article-id_mapping.json` and `feedback_data_partial.csv` placed in `data/` folder.  
-- 'article-id_mapping.json' contains a mapping of article ids to the corresponding articles from the RACE dataset. This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset.
 - 'feedback_data_partial.csv': DIRECT-F dataset (includes all test and dev sets, and 50% of the train set as described in the paper)
+- 'article-id_mapping.json': Part of the RACE dataset, contains a mapping of article ids to the corresponding articles in RACE (This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset).
+
 
 2. Test the model
 ```
-python test.py data/config/default.yaml --load t5-base-rc-feedback
+$python test.py data/config/default.yaml --load t5-base-rc-feedback
 ```
 
 
