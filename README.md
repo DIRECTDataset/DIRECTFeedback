@@ -1,4 +1,4 @@
-#### Paper
+# Insightful Feedback for Tutoring
 Wencke Liermann, Jin-Xia Huang, Yohan Lee, and Kong Joo Lee. 2024. [More Insightful Feedback for Tutoring: Enhancing Generation Mechanisms and Automatic Evaluation](https://aclanthology.org/2024.emnlp-main.605/). In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP 2024), pages 10838-10851, Miami, Florida, USA. Association for Computational Linguistics.
 
 ## DIRECT-F Dataset
@@ -41,47 +41,43 @@ We publish the whole validation and test set. The training set is published in p
 ## Rectify Model
 We provide our Rectify model, specifically finetuned for the task of feedback generation using the DIRECT-F data, at [Rectify Model](https://huggingface.co/etri-lirs/t5-base-rc-feedback) This model was trained on the entire train set as given in brackets above.
 
-#### Test the model
-```
-python test.py data/config/default.yaml --load t5-base-rc-feedback
-```
-
-#### Set Up
+#### Virtual Environment Setup
 1. Create and activate a new clean conda environment
 ```
 >>> conda create -n myenv python=3.9
 >>> conda activate myenv
 ```
 
-2. CUDA and Pytorch setup
+2. : CUDA and Pytorch
 In order to install the appropriate pytorch version, first find your CUDA version:
 In Windows Powershell or Linux standard terminal:
 ```
 >>> nvidia-smi
-+-----------------------------------------------------------------------------+
 | NVIDIA-SMI 515.65.01    Driver Version: 516.94       CUDA Version: **11.7**     |
-|-------------------------------+----------------------+----------------------+
-...
-```
 
+```
 Find your matching pytorch version and copy the comand from:
 https://pytorch.org/get-started/previous-versions/
 ```
 >>> conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
 ```
 
-3. Install all standard dependencies:
+3. Install dependencies:
 ```
 >>> pip install -r requirements.txt
 ```
 
-4. Prepare the data:
+#### Data Preparation and Model Execution
+1. Prepare the data:
 You will need two files `article-id_mapping.json` and `feedback_data_partial.csv` placed in `data/` folder.  
 - 'article-id_mapping.json' contains a mapping of article ids to the corresponding articles from the RACE dataset. This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset.
-- 'feedback_data_partial.csv' is a tab-separated file with the following columns:
+- 'feedback_data_partial.csv': DIRECT-F dataset (includes all test and dev sets, and 50% of the train set as described in the paper)
+
+2. Test the model
 ```
-set\tfile_id\tquestion_id\tquestion\tkey_sentence\tcorrect_answer\twrong_answer\tfeedback
+python test.py data/config/default.yaml --load t5-base-rc-feedback
 ```
+
 
 ## Attribution and Terms of Use:
 The DIRECT-F dataset and Rectify model are released under CC BY-NC-SA 4.0 License. By using the dataset and model, you agree to the following:  
