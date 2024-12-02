@@ -61,14 +61,14 @@ $conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cu
 $pip install -r requirements.txt
 ```
 
-#### Data Preparation and Model Execution
+#### Data Preparation
 1. Prepare the data:
 You will need two files `article-id_mapping.json` and `feedback_data_partial.csv` placed in `data/` folder.  
 - 'feedback_data_partial.csv': DIRECT-F dataset (includes all test and dev sets, and 50% of the train set as described in the paper)
 - 'article-id_mapping.json': Part of the RACE dataset, contains a mapping of article ids to the corresponding articles in RACE (This file is provided solely for non-commercial research purposes and adheres to the terms of use of the RACE dataset).
 
 
-2. Test the model
+#### Model Execution
 ```
 $python test.py data/config/default.yaml --load t5-base-rc-feedback
 ```
